@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8f4ed">
+<title>Tanish & Garvisha | Wedding Memories</title>
+<style>
+:root {
+  --site-primary: #7d2638;
+  --site-on-primary: #ffffff;
+  --site-secondary: #d9b978;
+  --site-on-secondary: #281d13;
+  --site-background: #f8f4ed;
+  --site-on-background: #302820;
+  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font-heading: Georgia, "Times New Roman", serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  color-scheme: light dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+#app { min-height: 100vh; width: 100%; border-radius: 0; background-color: light-dark(#f8f4ed, #211d1a); color: light-dark(#302820, #f4eee4); overflow: hidden; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.site-header { display:flex; justify-content:space-between; align-items:center; padding: calc(22px * var(--site-spacing-scale)) clamp(18px,5vw,76px); border-bottom:1px solid light-dark(#e9dfd1,#443a32); }
+.brand { display:flex; align-items:center; gap:12px; }
+.brand-mark { width:42px; height:42px; display:grid; place-items:center; border:1px solid var(--site-secondary); border-radius:50%; color:var(--site-primary); font-family:var(--site-font-heading); font-size:19px; }
+.brand-name { font-family:var(--site-font-heading); font-size:18px; letter-spacing:.04em; }
+.brand-sub { font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:light-dark(#877969,#c2ad96); margin-top:3px; }
+.nav-tag { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:light-dark(#897c6d,#c4b49f); }
+.hero { position:relative; text-align:center; padding: clamp(54px,9vw,112px) 20px 62px; background: radial-gradient(ellipse at 50% 0%, light-dark(#efe2ce,#48352d), transparent 65%); }
+.eyebrow { color:var(--site-primary); letter-spacing:.28em; text-transform:uppercase; font-size:11px; font-weight:700; }
+h1 { font-family:var(--site-font-heading); font-weight:400; font-size:calc(clamp(48px,8vw,88px) * var(--site-heading-scale)); line-height:.98; margin:18px 0 14px; letter-spacing:-.04em; }
+h1 span { color:var(--site-primary); font-style:italic; }
+.hero p { color:light-dark(#75695d,#c3b5a6); max-width:540px; margin:0 auto; line-height:1.7; font-size:15px; }
+.hero-rule { width:64px; height:1px; background:var(--site-secondary); margin:28px auto 0; }
+main { max-width:1100px; margin:0 auto; padding: 0 22px 76px; }
+.finder { max-width:760px; margin:-10px auto 0; position:relative; background:light-dark(#fffdfa,#302a25); border:1px solid light-dark(#e8dece,#51443a); border-radius:calc(22px * var(--site-radius-scale)); padding:clamp(22px,4vw,42px); box-shadow:0 18px 55px rgba(55,35,18,.08); }
+.finder h2, .section-title { font-family:var(--site-font-heading); font-size:calc(32px * var(--site-heading-scale)); font-weight:400; margin:0 0 8px; text-align:center; }
+.muted { color:light-dark(#85796d,#c1b1a0); font-size:13px; line-height:1.6; text-align:center; }
+.scan-frame { width: min(100%, 310px); aspect-ratio: 1.45; margin:27px auto 18px; border:1px dashed light-dark(#cbb995,#8b7454); border-radius:18px; display:grid; place-items:center; background:light-dark(#faf6ef,#28231f); overflow:hidden; position:relative; }
+.scan-frame video, .scan-frame img { width:100%; height:100%; object-fit:cover; display:none; }
+.scan-icon { text-align:center; color:var(--site-primary); }
+.scan-icon svg { width:56px; height:56px; display:block; margin:0 auto 10px; }
+.scan-icon small { color:light-dark(#897b6c,#c1b19f); font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+.scan-line { display:none; position:absolute; left:8%; right:8%; height:2px; background:var(--site-secondary); box-shadow:0 0 14px var(--site-secondary); animation:scan 2.2s ease-in-out infinite alternate; }
+@keyframes scan { from {top:15%;} to {top:85%;} }
+.actions { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:18px; }
+.btn { border:0; border-radius:999px; padding:13px 22px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; transition:transform .2s, opacity .2s; }
+.btn:hover { transform:translateY(-2px); }
+.btn-primary { background:var(--site-primary); color:var(--site-on-primary); }
+.btn-outline { background:transparent; color:light-dark(#6e5e4f,#e6d6c4); border:1px solid light-dark(#d9cbb8,#625044); }
+.btn-gold { background:var(--site-secondary); color:var(--site-on-secondary); }
+.note { margin:18px auto 0; max-width:540px; font-size:11px; line-height:1.6; text-align:center; color:light-dark(#988b7c,#b5a593); }
+.status { display:none; text-align:center; margin-top:16px; color:var(--site-primary); font-size:13px; }
+.gallery { padding-top:74px; }
+.gallery-head { text-align:center; margin-bottom:24px; }
+.gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.photo-card { min-height:210px; border-radius:14px; overflow:hidden; position:relative; background:light-dark(#e9dfd1,#3b3029); }
+.photo-card img { width:100%; height:100%; min-height:210px; object-fit:cover; display:block; }
+.photo-card .placeholder { min-height:210px; height:100%; display:grid; place-items:center; color:light-dark(#988774,#c0a98d); font-family:var(--site-font-heading); font-size:22px; text-align:center; padding:16px; }
+.photo-card .caption { position:absolute; bottom:0; left:0; right:0; padding:24px 12px 12px; color:white; font-size:11px; background:linear-gradient(transparent,rgba(0,0,0,.65)); }
+.gallery-empty { grid-column:1/-1; border:1px dashed light-dark(#d9cbb8,#625044); border-radius:14px; padding:32px; text-align:center; color:light-dark(#897b6c,#c1b19f); font-size:13px; }
+.admin-view { display:none; max-width:1000px; margin:0 auto; padding:44px 22px 76px; }
+.admin-login { max-width:440px; margin:0 auto 22px; padding:26px; border:1px solid light-dark(#e8dece,#51443a); border-radius:18px; background:light-dark(#fffdfa,#302a25); text-align:center; }
+.admin-login h2 { font-family:var(--site-font-heading); font-weight:400; font-size:30px; margin:8px 0; }
+.admin-login p { color:light-dark(#85796d,#c1b1a0); font-size:12px; line-height:1.6; }
+.admin-login input { width:100%; margin:7px 0; padding:13px 14px; border:1px solid light-dark(#d9cbb8,#625044); border-radius:10px; background:transparent; color:inherit; }
+.admin-login button:disabled { opacity:.5; cursor:not-allowed; }
+.admin-login input:disabled { opacity:.5; }
+.admin-login .login-error { color:#b33b36; min-height:18px; }
+.admin-panel { display:none; }
+.admin-panel.is-authenticated { display:block; }
+.password-change { margin-top:18px; padding:20px; border:1px solid light-dark(#e1d5c4,#51443a); border-radius:14px; background:light-dark(#f7f1e8,#25211e); }
+.password-change input { width:100%; max-width:360px; display:block; margin:8px 0; padding:12px 14px; border:1px solid light-dark(#d9cbb8,#625044); border-radius:10px; background:transparent; color:inherit; }
+.admin-panel { background:light-dark(#fffdfa,#302a25); border:1px solid light-dark(#e8dece,#51443a); border-radius:20px; padding:clamp(22px,4vw,38px); box-shadow:0 18px 55px rgba(55,35,18,.08); }
+.admin-panel h2 { font-family:var(--site-font-heading); font-size:34px; font-weight:400; margin:8px 0; }
+.admin-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:24px; }
+.admin-card { padding:20px; border-radius:14px; background:light-dark(#f7f1e8,#25211e); border:1px solid light-dark(#e1d5c4,#51443a); }
+.admin-card h3 { margin:0 0 8px; font-size:14px; }
+.admin-card p { color:light-dark(#7d7063,#c0b09f); font-size:12px; line-height:1.6; }
+.admin-warning { margin-top:20px; padding:14px 16px; border-radius:12px; background:light-dark(#f8edda,#3a3024); color:light-dark(#76572a,#e4c997); font-size:12px; line-height:1.6; }
+.admin-back { margin-top:22px; }
+.admin { margin-top:70px; background:light-dark(#eee5d8,#302a25); border-radius:18px; padding:clamp(22px,4vw,34px); }
+.admin-top { display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+.admin h2 { font-family:var(--site-font-heading); font-weight:400; font-size:28px; margin:0; }
+.admin p { color:light-dark(#7d7063,#c0b09f); font-size:12px; line-height:1.6; }
+.admin-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px; }
+.admin-box { background:light-dark(#fffdfa,#25211e); border:1px solid light-dark(#e1d5c4,#51443a); border-radius:14px; padding:20px; }
+.admin-box h3 { font-size:13px; margin:0 0 8px; }
+.admin-box p { margin:0 0 14px; }
+.upload-label { display:inline-flex; align-items:center; gap:8px; }
+.file-input { display:none; }
+.footer { text-align:center; padding:35px 20px; color:light-dark(#968878,#b7a591); font-size:11px; letter-spacing:.08em; }
+.toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#302820; color:#fff; padding:12px 18px; border-radius:999px; font-size:12px; display:none; z-index:5; max-width:90vw; text-align:center; }
+@media(max-width:650px) { .nav-tag { display:none; } .gallery-grid { grid-template-columns:repeat(2,1fr); gap:9px; } .photo-card,.photo-card img,.photo-card .placeholder { min-height:160px; } .admin-grid { grid-template-columns:1fr; } .site-header { padding:16px 18px; } }
+@media(max-width:650px) { .admin-cards { grid-template-columns:1fr; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="site-header">
+    <div class="brand"><div class="brand-mark">T&amp;G</div><div><div class="brand-name">Tanish &amp; Garvisha</div><div class="brand-sub">The Wedding Collection</div></div></div>
+    <div class="nav-tag">12 November 2026 · Indore</div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">A celebration of love</div>
+    <h1>Find your <span>moments.</span></h1>
+      <p>One beautiful day, countless memories. Scan your face to find the wedding photographs you appear in, from the couple's connected Google Drive album.</p>
+    <div class="hero-rule"></div>
+  </section>
+  <main>
+    <section class="finder" aria-labelledby="finder-title">
+      <h2 id="finder-title">Your memories await</h2>
+      <div class="muted">Allow camera access or choose a clear selfie to begin your photo search.</div>
+      <div class="scan-frame" id="scanFrame">
+        <div class="scan-icon" id="scanIcon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 23V13a3 3 0 0 1 3-3h10M41 10h10a3 3 0 0 1 3 3v10M54 41v10a3 3 0 0 1-3 3H41M23 54H13a3 3 0 0 1-3-3V41"/><circle cx="32" cy="27" r="9"/><path d="M17 49c2-8 7-12 15-12s13 4 15 12"/></svg><small>Face scan area</small></div>
+        <video id="camera" autoplay playsinline muted></video>
+        <img id="selfiePreview" alt="Selected selfie preview">
+        <div class="scan-line" id="scanLine"></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="cameraBtn">Open camera</button>
+        <label class="btn btn-outline upload-label" for="selfieInput">Choose selfie</label>
+        <input class="file-input" id="selfieInput" type="file" accept="image/*">
+        <button class="btn btn-gold" id="findBtn" disabled>Find my photos</button>
+      </div>
+      <div class="status" id="status" role="status"></div>
+      <div class="note">Planned flow: the couple connects a private Drive folder, a secure service indexes the wedding photos, and your selfie is compared to find photos that may include you. Matching requires guest consent and a secure face-matching backend; it is not active in this preview.</div>
+    </section>
+    <section class="gallery" id="gallery">
+      <div class="gallery-head"><div class="eyebrow">Your wedding album</div><h2 class="section-title">Moments to remember</h2><div class="muted" id="gallerySub">Your matched photos will appear here.</div></div>
+      <div class="gallery-grid" id="galleryGrid"><div class="gallery-empty">Your personal gallery will appear here after a secure face-match service is connected.</div></div>
+    </section>
+  </main>
+  <section class="admin-view" id="adminView">
+    <div class="admin-login" id="adminLogin">
+      <div class="eyebrow">Restricted access</div>
+      <h2>Couple admin sign in</h2>
+      <p>Sign in with the private admin password.</p>
+      <input type="password" id="adminPassword" placeholder="Admin password" autocomplete="current-password">
+      <button class="btn btn-primary" id="adminSignIn">Sign in</button>
+      <p class="login-error" id="loginError" role="alert"></p>
+      <p>Password is checked by the secure backend. It is never saved in this page.</p>
+    </div>
+    <div class="admin-panel" id="adminPanel">
+      <div class="eyebrow">Couple only · Admin workspace</div>
+      <h2>Wedding album dashboard</h2>
+      <p class="muted" style="text-align:left">Manage the private wedding photo collection for Tanish &amp; Garvisha.</p>
+      <div class="admin-cards">
+        <div class="admin-card"><h3>Google Drive connection</h3><p>Connect the couple's Google account and choose the wedding album folder. The Drive folder will remain private.</p><button class="btn btn-primary" id="adminDriveBtn">Connect Google Drive</button></div>
+        <div class="admin-card"><h3>Photo indexing</h3><p>After Drive is connected, the secure backend will index album photos for consent-based matching.</p><button class="btn btn-outline" id="indexBtn">Start photo indexing</button></div>
+        <div class="admin-card"><h3>Album status</h3><p id="albumStatus">Google Drive not connected</p><p id="indexStatus">Photo indexing not started</p></div>
+        <div class="admin-card"><h3>Privacy controls</h3><p>Set a retention period for guest selfie data and remove face-match data when it is no longer needed.</p><button class="btn btn-outline" id="privacyBtn">View privacy setup</button></div>
+      </div>
+      <div class="password-change"><h3>Change admin password</h3><p>Enter your current password and choose a new one.</p><input type="password" id="currentAdminPassword" placeholder="Current password" autocomplete="current-password"><input type="password" id="newAdminPassword" placeholder="New password (12+ characters)" autocomplete="new-password"><button class="btn btn-outline" id="changeAdminPassword">Update password</button><p id="passwordChangeStatus" role="status"></p><button class="btn btn-outline" id="adminSignOut">Sign out</button></div>
+      <div class="admin-warning">The page is wired for secure backend endpoints, but login and password changes will work only after the Node.js backend is deployed and its API address is configured. Never put the admin password or Google Client Secret in this HTML file.</div>
+      <button class="btn btn-outline admin-back" id="backBtn">Back to visitor website</button>
+    </div>
+  </section>
+  <footer class="footer">MADE WITH LOVE · TANISH &amp; GARVISHA · 12.11.2026</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const $ = (id) => document.getElementById(id);
+let stream = null;
+let selfieReady = false;
+let localPhotos = [];
+function toast(message) { const el=$('toast'); el.textContent=message; el.style.display='block'; clearTimeout(toast.timer); toast.timer=setTimeout(()=>el.style.display='none',4200); }
+function setStatus(message) { $('status').textContent=message; $('status').style.display='block'; }
+function stopCamera() { if(stream) { stream.getTracks().forEach(track=>track.stop()); stream=null; } }
+const API_BASE = 'https://YOUR-BACKEND.onrender.com';
+async function adminRequest(path, body) { const response=await fetch(API_BASE+path,{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); const data=await response.json().catch(()=>({})); if(!response.ok) throw new Error(data.message || (response.status===401?'Invalid password':'Request failed')); return data; }
+function setAdminAuthenticated(value) { $('adminPanel').classList.toggle('is-authenticated',value); $('adminLogin').style.display=value?'none':'block'; }
+function showRoute() { const isAdmin=location.hash==='#admin'; $('adminView').style.display=isAdmin?'block':'none'; document.querySelector('main').style.display=isAdmin?'none':'block'; document.querySelector('.hero').style.display=isAdmin?'none':'block'; }
+window.addEventListener('hashchange',showRoute); showRoute();
+$('adminSignIn').addEventListener('click',async()=>{ const password=$('adminPassword').value; $('loginError').textContent=''; if(!password){$('loginError').textContent='Please enter your password.';return;} try { await adminRequest('/api/admin/login',{password}); $('adminPassword').value=''; setAdminAuthenticated(true); } catch(error) { $('loginError').textContent=error.message==='Failed to fetch'?'Backend is not connected yet.':error.message; } });
+$('changeAdminPassword').addEventListener('click',async()=>{ const currentPassword=$('currentAdminPassword').value; const newPassword=$('newAdminPassword').value; $('passwordChangeStatus').textContent=''; if(newPassword.length<12){$('passwordChangeStatus').textContent='New password must be at least 12 characters.';return;} try { await adminRequest('/api/admin/password',{currentPassword,newPassword}); $('currentAdminPassword').value=''; $('newAdminPassword').value=''; $('passwordChangeStatus').textContent='Password updated successfully.'; } catch(error) { $('passwordChangeStatus').textContent=error.message==='Failed to fetch'?'Backend is not connected yet.':error.message; } });
+$('adminSignOut').addEventListener('click',async()=>{ try { await adminRequest('/api/admin/logout',{}); } catch(error) {} setAdminAuthenticated(false); });
+$('adminDriveBtn').addEventListener('click',()=>toast('Google Drive OAuth needs the secure backend before it can connect.'));
+$('indexBtn').addEventListener('click',()=>toast('Connect Drive and configure the secure indexing service first.'));
+$('privacyBtn').addEventListener('click',()=>toast('Privacy settings will be enabled with the secure backend.'));
+$('backBtn').addEventListener('click',()=>{location.hash='';});
+$('cameraBtn').addEventListener('click', async () => {
+  if(stream) { stopCamera(); $('camera').style.display='none'; $('scanLine').style.display='none'; $('scanIcon').style.display='block'; $('cameraBtn').textContent='Open camera'; return; }
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { toast('Camera is unavailable here. Please choose a selfie instead.'); return; }
+  try { stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false}); $('camera').srcObject=stream; $('camera').style.display='block'; $('selfiePreview').style.display='none'; $('scanIcon').style.display='none'; $('scanLine').style.display='block'; $('cameraBtn').textContent='Close camera'; $('findBtn').disabled=false; selfieReady=true; setStatus('Camera ready. For this preview, the matching step is a demonstration only.'); }
+  catch(error) { toast('Camera permission was not granted. You can choose a selfie instead.'); }
+});
+$('selfieInput').addEventListener('change', event => {
+  const file=event.target.files && event.target.files[0]; if(!file) return;
+  stopCamera(); const url=URL.createObjectURL(file); $('selfiePreview').src=url; $('selfiePreview').style.display='block'; $('camera').style.display='none'; $('scanIcon').style.display='none'; $('scanLine').style.display='none'; $('cameraBtn').textContent='Open camera'; selfieReady=true; $('findBtn').disabled=false; setStatus('Selfie selected. Ready to try the demo search.');
+});
+ $('findBtn').addEventListener('click', () => {
+  if(!selfieReady) return;
+  if(localPhotos.length) { $('gallerySub').textContent='Local preview album · '+localPhotos.length+' photo(s)'; toast('Demo only: these are album previews, not face-matched results.'); }
+  else { $('gallerySub').textContent='Waiting for the couple to connect and index the Google Drive wedding album.'; toast('The real search will compare your selfie with the indexed Drive album. Google Drive and secure face matching still need backend setup.'); }
+  $('gallery').scrollIntoView({behavior:'smooth'});
+});
+window.addEventListener('pagehide',stopCamera);
+</script>
+</body>
+</html>
